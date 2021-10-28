@@ -1,2 +1,3 @@
 # react-blog
-management CRUD
+management blog CRUD
+
