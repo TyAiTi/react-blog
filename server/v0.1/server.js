@@ -37,4 +37,60 @@ app.get("/v0.1/status", (req, res)=>{
   })
 })// /v0.1/status
 
+app.post("/v0.1/postshare",(req,res)=>{
+  let error = {
+    status: 0
+  }
+  if (!req.body.connecter_id || !req.body.content || !req.body.benefit
+      || isNaN(req.body.connecter_id) || isNaN(req.body.benefit) ){
+      console.log("loi")
+      res.send(error)
+  }else{
+    var connecter_id = req.body.connecter_id
+    var content = req.body.content
+    var benefit = req.body.benefit
+
+    database.saveShare(connecter_id, content, benefit, function(resultQuery){
+      // res.json(resultQuery)
+      setTimeout(function() {
+        res.json(resultQuery)
+      }, 200); //time out
+    })
+  }
+})// /v0.1/postshare
+
+app.post('/v0.1/removestatus',(req,res)=>{
+  let error = {status: 0}
+  if (!req.body.id_st  || isNaN(req.body.id_st) ){
+    console.log("loi")
+    res.send(error)
+}else{
+  var id_st = req.body.id_st
+  database.removeStatus(id_st, function(resultQuery){
+    setTimeout(function() {
+      res.json(resultQuery)
+    }, 200); //time out
+  })
+}
+})
+
+app.post('/v0.1/editstatus',(req,res)=>{
+  let error = {status: 0}
+  if (!req.body.id_st || !req.body.content || !req.body.benefit
+    || isNaN(req.body.id_st) || isNaN(req.body.benefit) ){
+    console.log("loi")
+    res.send(error)
+}else{
+  var id_st = req.body.id_st
+  var content = req.body.content
+  var benefit = req.body.benefit
+
+  database.editShare(id_st, content, benefit, function(resultQuery){
+    // res.json(resultQuery)
+    setTimeout(function() {
+      res.json(resultQuery)
+    }, 200); //time out
+  })
+}
+})
 server.listen(4000, () => console.log('API is running on http://localhost:4000'));

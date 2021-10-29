@@ -46,4 +46,61 @@ exports.showStatus = function( callbackStatus){
   })
 }
 
+exports.saveShare = function(connecter_id, content, benefit, callbackShare){
+  let error = {
+    status: 0
+  }
+  connection.query("INSERT INTO status (id_st, connecter_id, content, date_st, benefit)"+
+    " VALUES (NULL, '"+connecter_id+"', '"+content+"', NULL, '"+benefit+"')",
+    function(err, results, fields){
+      if(!err){//query login success
+          if(results.insertId > 0){
+            // console.log(results)
+            callbackShare({status: 1, id_st: results.insertId})
+          }else{
+            console.log(results)
+            console.log("cho nay")
+            callbackShare(error)
+          }
+      }else {//query login failed
+        console.log("'loi")
+        callbackShare(error)
+        }
+    }
+  )
+}
 
+exports.removeStatus = function(id_st, callbackRemove){
+  let error = { status: 0 }
+  if (!id_st  || isNaN(id_st) ){
+    return callbackRemove(error)
+  }
+  var sql = "DELETE FROM status WHERE id_st = '"+id_st+"'";
+  connection.query(sql,
+    function(err, results, field){
+      if(!err){
+        // console.log(results)
+        return callbackRemove({status: 1})
+      }else{
+        return callbackRemove(error)
+      }
+    })
+}
+
+exports.editShare = function(id_st, content, benefit, callbackShare){
+  let error = { status: 0 }
+  if (!id_st || !content || !benefit
+    || isNaN(id_st) || isNaN(benefit) ){
+      callbackShare(error)
+  }
+  var sql = "UPDATE status SET content = '"+content+"', benefit = '"+benefit+"' "+
+            " WHERE id_st = '"+id_st+"'";
+  connection.query(sql,
+    function(err, results, field){
+      if(!err){
+        return callbackShare({status: 1})
+      }else{
+        return callbackShare(error)
+      }
+    })
+}
