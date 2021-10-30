@@ -13,6 +13,12 @@ export default function Modal({ isShowing, hide, ob, loadStatus }){
     }
     const editStatus = async (e,{hide,ob})=>{
         e.preventDefault();
+        for (let key in update) {
+            if (update[key] === '') {
+              alert(`${key} Null`)
+              return
+            }
+          }
         let obEdit = {
             id_st: ob.id_st,
             content: update.content,
@@ -22,6 +28,8 @@ export default function Modal({ isShowing, hide, ob, loadStatus }){
         console.log(json)
         if(json.status){
             alert("Update susscess !")
+        }else{
+            alert("Update Failed !")
         }
         //reload status
         loadStatus()
@@ -36,6 +44,8 @@ export default function Modal({ isShowing, hide, ob, loadStatus }){
       console.log(json)
       if(json.status){
         alert("Remove susscess !")
+      }else{
+        alert("Remove Failed !")
       }
       //reload status
       loadStatus()
