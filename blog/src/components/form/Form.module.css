@@ -1,0 +1,27 @@
+.top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .shareInput {
+      border: none;
+      width: 50%;
+      border-radius: 10px;
+      height: 70px;
+      background-color: #BBD2C5;
+    }
+  
+    .shareMoney {
+      margin-left: 40px;
+      border: none;
+      height: auto;
+      width: 80px;
+      border-radius: 10px;
+      /* height: 70px; */
+      background-color: #BBD2C5;
+    }
+  
+    .button_default {
+      background: #247BA0;
+      color: #fff;
+    }
