@@ -4,6 +4,7 @@ import useToken from "./API/useToken"
 import Form from "./components/form/Form";
 import { BrowserRouter as Router, Switch,
   Route} from "react-router-dom";
+import { GlobalStyle} from './components/css/cssform'
 function App() {
   const { token, setToken } = useToken();
   if(!token) {
@@ -11,6 +12,7 @@ function App() {
   }
   return (
     <>
+      <GlobalStyle/>
       <Router>
         <Switch>
           <Route

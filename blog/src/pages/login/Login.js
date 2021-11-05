@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-
+import { GlobalStyle } from "../../components/css/cssform"
 import s from "./Login.module.css"
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
@@ -20,6 +20,7 @@ export default function Login({setToken}){
  
   return(
     <div>
+      <GlobalStyle/>
       <div className={s.top}>
         <h1>Đây là trang Login</h1>
 
