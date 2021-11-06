@@ -22,7 +22,7 @@ export default function Login({setToken}){
     <div>
       <GlobalStyle/>
       <div className={s.top}>
-        <h1>Đây là trang Login</h1>
+        <h1>Đây là trang Login Tỷ</h1>
 
         <form onSubmit={handleSubmit(onLoginSubmit)} >
           <div className={s.field}>
