@@ -7,7 +7,7 @@ require_once($filepath."/dbconfig.php");
 $error = '{"status":0}';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $sql = "SELECT b.id_st, b.connecter_id,a.name, b.content,b.benefit,
-            DATE_FORMAT(b.date_st, '%d/%l/%Y %H:%i') as date_st
+            b.date_st
             FROM users as a, status as b
             WHERE a.id=b.connecter_id
             ORDER BY b.id_st DESC;";

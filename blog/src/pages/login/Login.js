@@ -4,6 +4,10 @@ import s from "./Login.module.css"
 import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
+//import redux useDispatch and call action
+import {useDispatch} from 'react-redux'
+import {login} from '../../redux/actions'
+
 const schema = yup.object().shape({
   username: yup
   .string()
@@ -12,10 +16,12 @@ const schema = yup.object().shape({
 })
 
 export default function Login({setToken}){
+  
+  const dispatch = useDispatch()
   const {register, handleSubmit, watch, formState:{errors} } =useForm({ resolver: yupResolver(schema)})
   const onLoginSubmit = (data)=>{
     console.log(data)
-    setToken({token: data.username})
+    dispatch(login())
   }
  
   return(
@@ -23,7 +29,7 @@ export default function Login({setToken}){
       <GlobalStyle/>
       <div className={s.top}>
         <h1>Đây là trang Login Tỷ</h1>
-
+        <h5>Sử dụng redux store lưu session login</h5>
         <form onSubmit={handleSubmit(onLoginSubmit)} >
           <div className={s.field}>
             <input {...register("username")} placeholder="Nhập username"/>

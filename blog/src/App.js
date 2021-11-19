@@ -1,14 +1,18 @@
 import Login from "./pages/login/Login"
 import Home from "./pages/home/Home"
-import useToken from "./API/useToken"
-import Form from "./components/form/Form";
 import { BrowserRouter as Router, Switch,
   Route} from "react-router-dom";
 import { GlobalStyle} from './components/css/cssform'
+
+//import redux useSelector read data
+import {useSelector} from 'react-redux'
+
+
 function App() {
-  const { token, setToken } = useToken();
-  if(!token) {
-    return <Login setToken={setToken} />
+  
+  const isLogged = useSelector(state=> state.isLogged)
+  if(!isLogged) {
+    return <Login />
   }
   return (
     <>
@@ -18,7 +22,7 @@ function App() {
           <Route
               exact path="/" render={() => {
                 return ( <> <Home/> </>)  }}></Route>
-          <Route path="/form" > <Form/> </Route>
+          {/* <Route path="/home" > <Home/> </Route> */}
         </Switch>
       </Router>  
     </>
