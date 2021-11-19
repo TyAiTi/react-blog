@@ -4,7 +4,7 @@ import App from './App';
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import allReducer from './redux/reducers'
-
+import ContractInfor from './pages/hopdong/contractInfor'
 let store = createStore(
   allReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -13,7 +13,8 @@ let store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App/>
+      {/* <App/> */}
+      <ContractInfor/>
     </Provider>
     
   </React.StrictMode>,

@@ -1,0 +1,109 @@
+.container{
+    height: 750px;
+    width: 100%;
+    background-color:blanchedalmond;
+}
+.header{
+    height: 50px;
+    background-color:brown;
+    display: flex;
+}
+.h_left{
+    background-color: cornflowerblue;
+    flex: 7;
+    margin-left: 35px;
+}
+.h_inside{
+    background-color: rgb(5, 105, 55);
+    flex: 1
+}
+.h_right{
+    background-color: rgb(237, 100, 130);
+    flex: 1.5
+}
+
+.body{
+    height: 500px;
+    background-color: darkcyan;
+    margin-left: 6%;
+    margin-right: 6%;
+    
+}
+.body_top{
+    height: 150px;
+    background-color: darkgray;
+    width: 100%;
+}
+.body_top1{
+    margin-top: 15px;
+    height: 30px;
+}
+.body_top2{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: darkgreen;
+    display: flex;
+}
+.body_top2_left{
+    flex: 7;
+    font-size: 28px;
+}
+.body_top2_right{
+    flex: 1;
+}
+.body_top3{
+    display: flex;
+}
+.body_top3_left{
+    margin-left: 15px;
+}
+.body_top3_right{
+    margin-left: 25px;
+}
+
+.body_down{
+    height: 250px;
+    background-color: rgb(18, 161, 138);
+    width: 100%;
+    display: flex;
+}
+
+.body_d_left{
+    flex: 4;
+    background-color: darkkhaki;
+}
+.body_d_l_top{
+    height: 150px;
+    background-color: darkorange;
+    display: flex;
+    flex-wrap: nowrap; 
+    /* nowrap không xuống hàng */
+}
+.body_d_l_left{
+    flex-grow: 1;
+    background-color: aqua;
+}
+.body_d_l_right{
+    flex-grow: 1;
+    background-color: rgb(38, 212, 111);
+}
+.body_d_l_down{
+    margin-top: 40px;
+    height: 150px;
+    background-color: darkorchid;
+    display: flex;
+    flex-wrap: nowrap; 
+}
+.body_d_right{
+    margin-left: 40px;
+    flex: 6;
+    background-color: darkorange;
+    display: flex;
+}
+.body_d_r_left{
+    flex: 5;
+}
+.body_d_r_right{
+    flex: 5;
+}
