@@ -77,7 +77,7 @@ export default function InforValue( {props}){
             {/* Header */}
             <div className={`${classes.header}`}>
                 <Grid container spacing={0} xs={12}>
-                    <Grid item xs={3} >
+                    <Grid item xs={12} >
                         <Typography style={{marginLeft:'8px',}}
                             className={`${classes.textHeader}`}>
                             Thông Tin Giá Trị 
