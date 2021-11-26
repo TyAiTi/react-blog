@@ -9,9 +9,9 @@ import Typography from '@mui/material/Typography';
 
 // import TabHistory from './TabHistory'
 // import styles from './Tab.module.css'
-import TabHistory from '../../views/TabHistory/TabHistory';
-import BasicGrid from '../grid/Grid'
-
+import TabHistory from '../TabHistory/TabHistory';
+// import BasicGrid from '../grid/Grid'
+import TabInfor from '../TabInfor/TabInfor';
 const useStyles = makeStyles( (theme)=>({ 
   root:{
     backgroundColor: '#FFFFFF'
@@ -72,7 +72,7 @@ export default function TabMui(){
         </Box>
         
         <TabPanel value={value} index={0} >
-          <BasicGrid/>
+          <TabInfor/>
             {/* <TabInfor/>  */}
             {/* Tab Thông tin hợp Đồng */}
         </TabPanel>

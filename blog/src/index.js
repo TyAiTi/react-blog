@@ -4,12 +4,10 @@ import App from './App';
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import allReducer from './redux/reducers'
-// import ContractInfor from './pages/hopdong/contractInfor'
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import HopDong from './pages/hopdong/hopdong'
-// import Typography from '@mui/material/Typography';
-import Flex from './components/flexbox/Flex'
-import Grid from './components/grid/Grid'
+// import HopDong from './pages/hopdong/hopdong'
+import HopDong from './views/HopDong/HopDong'
 let theme = createTheme({
   palette: {
     primary: {
@@ -40,10 +38,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        {/* <App/> */}
         <HopDong/>
-        {/* <Flex/> */}
-        {/* <Grid/> */}
       </ThemeProvider>
     </Provider>
     
