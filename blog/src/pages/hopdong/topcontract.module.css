@@ -1,0 +1,25 @@
+
+
+.top{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    
+}
+.down{
+    height: 65px;
+    display: flex;
+    /* background-color: cadetblue; */
+    align-items: center;
+}
+
+.topleft{
+    flex: 8.5;
+}
+
+.topright{
+    flex: 2;
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: flex-end;
+}

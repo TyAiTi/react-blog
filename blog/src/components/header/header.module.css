@@ -1,0 +1,37 @@
+.header{
+    display: flex;
+    background-color: #FFFFFF;
+    /* background-color: aqua; */
+    flex-wrap: nowrap; 
+    height: 50px;
+    align-items: center;
+    width: 100%;
+}
+.left{
+    flex: 7;
+    /* background-color: blanchedalmond; */
+    margin-left: 4%;
+}
+.inside{
+    flex: 1;
+    /* background-color: rgb(0, 255, 136); */
+    display: flex;
+    justify-content: center;
+}
+.right{
+    flex: 1.5;
+    /* background-color: chocolate; */
+    margin-right: 4%;
+    display: flex;
+}
+
+.name{
+    /* background-color: rgb(255, 174, 0); */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.arrow{
+    margin-right: 1%;
+}

@@ -1,0 +1,35 @@
+.top{
+    display: flex;
+    background-color: aqua;
+}
+
+.left{
+    /* background-color: beige; */
+    flex: 4.5;
+}
+.right{
+    /* background-color: blueviolet; */
+    flex: 5.5;
+}
+.item_header{
+    display: flex;
+    background-color: #D8D8D8;
+    height: 50px;
+}
+.item_half{
+    flex: 1;
+    display: flex;
+    /* background-color: burlywood; */
+    justify-content: space-around;
+    align-items: center;
+}
+.text_bold{
+    font-weight: bold;
+}
+.flex_center{
+    display: flex;
+    align-items: center;
+}
+.left10{
+    margin-left: 10px;
+}
