@@ -8,6 +8,8 @@ import allReducer from './redux/reducers'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import HopDong from './pages/hopdong/hopdong'
 import HopDong from './views/HopDong/HopDong'
+import TabInfor from './views/TabInfor/TabInfor'
+import GridBasic from './views/TabInfor/GirdBasic'
 let theme = createTheme({
   palette: {
     primary: {
@@ -36,11 +38,12 @@ let store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <HopDong/>
-      </ThemeProvider>
-    </Provider>
+    {/* <Provider store={store}> */}
+      {/* <ThemeProvider theme={theme}> */}
+        {/* <HopDong/> */}
+        <GridBasic/>
+      {/* </ThemeProvider> */}
+    {/* </Provider> */}
     
   </React.StrictMode>,
   document.getElementById('root')
