@@ -41,31 +41,34 @@ const useStyles2 = makeStyles( (theme)=>({
         boxShadow: '0 0 3px 0 #616161',
         marginTop:'20px'
     },
+    frameHeader:{
+        marginTop: '13px',
+    },
     framecontent:{
+        marginTop: '8px',
         // backgroundColor:'pink',
-        marginTop: '10px',
-        paddingBottom: '8px',
-        paddingTop:'8px'
+        // paddingBottom: '8px',
+        // paddingTop:'8px'
     },
     textHeader:{
         fontFamily:'Roboto',
         fontSize:'18px',
         fontWeight:'bold',
-        marginLeft:'8px'
+        marginLeft:'16px'
     },
     textReq:{
         fontFamily:'Roboto',
         fontWeight:'bold',
         fontSize:'14px',
         color: '#8A939F',
-        marginLeft:'8px'
+        marginLeft:'16px'
     },
     textRes:{
         fontFamily:'Roboto',
         fontWeight:'bold',
         fontSize:'16px',
         color: '#323C4A',
-        marginLeft:'8px'
+        marginLeft:'16px'
     },
     textReqNon:{
         fontFamily:'Roboto',
@@ -121,7 +124,7 @@ export default function GridBasic(){
                 <Grid container item sx={12} md={5} className={classes2.left}>
                     {/* Bảng trên */}
                     <Grid container item sx={12} md={12} className={classes2.tabletop}>
-                        <Grid container item sx={12} md={12} className={classes2.framecontent}>
+                        <Grid container item sx={12} md={12} className={classes2.frameHeader}>
                             <Grid item sx={12} md={3.5}>
                                 <Typography className={classes2.textHeader}>
                                     Số Hợp Đồng
@@ -137,7 +140,7 @@ export default function GridBasic(){
                                     <FileCopyIcon color='secondary'/>
                                 </Typography>
                             </Grid>
-                            <Grid item sx={12} md={3}>
+                            <Grid item sx={12} md={3} style={{display:'flex'}}>
                                 <CheckCircleOutlineIcon color='secondary'/>
                                 <Typography className={classes2.textHeader}>
                                     Hiệu lực
@@ -181,13 +184,13 @@ export default function GridBasic(){
                             </Grid>
                         </Grid>
                         <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
-                            {/* Khoảng cách cho footer */}
+                            {/* Khoảng cách cho footer bảng số hợp đồng*/}
                         </Grid>
                     </Grid>
 
                     {/* Bảng giữa */}
-                    <Grid container item sx={12} md={12} className={classes2.tablecenter}>
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
+                    <Grid container item sx={12} md={12} className={classes2.tablecenter} >
+                        <Grid item sx={12} md={12} className={classes2.frameHeader}>
                             <Typography className={classes2.textHeader}>
                                 Thông tin thiết bị
                             </Typography>
@@ -259,49 +262,8 @@ export default function GridBasic(){
                     </Grid>
 
                     {/* Bảng dưới */}
-                    <Grid container item sx={12} md={12} className={classes2.tabledown} >
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
-                            <Typography className={classes2.textHeader}>
-                                Thông tin Hủy
-                            </Typography>
-                        </Grid>
-                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReq}>
-                                    Thời gian yêu cầu hủy
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textRes}>
-                                    -
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReq}>
-                                    Số tiền hoàn trả
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textRes}>
-                                    -
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReq}>
-                                    requestId
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textRes}>
-                                    -
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid item sx={12} md={12} style={{marginBottom:'400px'}}>
+                    <Grid container item sx={12} md={12} >
+                        <Grid item sx={12} md={12} style={{marginBottom:'100px'}}>
                             {/* Khoảng giữa cho các Table */}
                         </Grid>
                     </Grid>
@@ -312,7 +274,7 @@ export default function GridBasic(){
                 <Grid container item sx={12} md={7} className={classes2.right}>
                     {/* Bảng trên */}
                     <Grid container item sx={12} md={12} className={classes2.tabletop}>
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
+                        <Grid item sx={12} md={12} className={classes2.frameHeader}>
                             <Typography className={classes2.textHeader}>
                                 Thông tin hợp đồng
                             </Typography>
@@ -473,6 +435,14 @@ export default function GridBasic(){
                                 </Typography>
                             </Grid>
                         </Grid>
+                        {/* ----Thông tin hủy ----- */}
+                        <Grid container item sx={12} md={12} className={classes2.framecontent}>
+                            <Grid item sx={12} md={12}>
+                                <Typography className={classes2.textRes}>
+                                   Thông tin hủy
+                                </Typography>
+                            </Grid>
+                        </Grid>
                         <Grid container item sx={12} md={6} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReq}>
@@ -497,133 +467,39 @@ export default function GridBasic(){
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
-                            {/* Khoảng cách cho footer */}
-                        </Grid>
-                    </Grid>
-
-
-                    {/* Bảng dưới */}
-                    <Grid container item sx={12} md={12} className={classes2.tabledown}>
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
-                            <Typography className={classes2.textHeader}>
-                                Thông tin xác thực
-                            </Typography>
-                        </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
+                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReq}>
-                                    Xác thực IMEI
+                                    Thời gian yêu cầu hủy
                                 </Typography>
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    Có
+                                    -
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Giám định vỡ màn hình
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    Không
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Thời gian khách hàng yêu cầu
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    11/10/2021 00:00
-                                </Typography>
-                            </Grid>
-                        </Grid>
-
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
+                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReq}>
-                                    Kết quả OCR
+                                    Số tiền hoàn trả
                                 </Typography>
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    Thành công
+                                    -
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Kết quả AI
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    Không vỡ
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Thời gian hệ thống trả kết quả 
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    11/10/2021 02:00
-                                </Typography>
-                            </Grid>
-                        </Grid>
-
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
+                        <Grid container item sx={12} md={6} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReq}>
-                                    OCR - IMEI1
+                                    requestId
                                 </Typography>
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    123123123123
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Tỉ lệ chính xác
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    90,00 %
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        
-                        <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
-                            {/* Khoảng cách giữa trên ảnh */}
-                        </Grid>
-
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReq}>
-                                    Ảnh OCR
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container item sx={12} md={4} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
-                                    Ảnh AI
+                                    -
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -631,13 +507,14 @@ export default function GridBasic(){
                             {/* Khoảng cách cho footer */}
                         </Grid>
                     </Grid>
+
                 </Grid>
                 
                 {/* Bảng dưới cùng */}
                 <Grid container item sx={12} md={12} className={classes2.tabledown}>
                     {/* Bảng trái */}
                     <Grid container item sx={12} md={7} >
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
+                        <Grid item sx={12} md={12} className={classes2.frameHeader}>
                             <Typography className={classes2.textHeader}>
                                 Thông tin xác thực
                             </Typography>
