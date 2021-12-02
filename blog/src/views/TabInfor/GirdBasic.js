@@ -2,6 +2,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import CheckCircleOutlineIcon  from '@mui/icons-material/CheckCircleOutline';
+
 const useStyles2 = makeStyles( (theme)=>({
     root: {
       flexGrow: 1,
@@ -97,10 +100,11 @@ export default function GridBasic(){
                             </Grid>
                             <Grid item sx={12} md={2}>
                                 <Typography className={classes2.textHeader}>
-                                    ICON
+                                    <FileCopyIcon color='secondary'/>
                                 </Typography>
                             </Grid>
                             <Grid item sx={12} md={3}>
+                                <CheckCircleOutlineIcon color='secondary'/>
                                 <Typography className={classes2.textHeader}>
                                     Hiệu lực
                                 </Typography>
