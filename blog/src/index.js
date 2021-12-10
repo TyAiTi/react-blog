@@ -10,6 +10,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HopDong from './views/HopDong/HopDong'
 import TabInfor from './views/TabInfor/TabInfor'
 import GridBasic from './views/TabInfor/GirdBasic'
+import Bar from './components/barprogress/Bar'
+import MyComponent from './components/image/image'
 let theme = createTheme({
   palette: {
     primary: {
@@ -41,7 +43,9 @@ ReactDOM.render(
     {/* <Provider store={store}> */}
       {/* <ThemeProvider theme={theme}> */}
         {/* <HopDong/> */}
+        {/* <Bar/> */}
         <GridBasic/>
+        {/* <MyComponent/> */}
       {/* </ThemeProvider> */}
     {/* </Provider> */}
     

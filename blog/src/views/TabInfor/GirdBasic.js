@@ -5,13 +5,16 @@ import Typography from '@material-ui/core/Typography';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import CheckCircleOutlineIcon  from '@mui/icons-material/CheckCircleOutline';
 
+import { useState, useEffect } from 'react';
+import {props} from './teamplate'
+import moment from "moment";
 const src_img = "http://localhost/code/baohiem/check/iphone.jpg"
 
 const useStyles2 = makeStyles( (theme)=>({
     root: {
       flexGrow: 1,
       backgroundColor:'#E5E5E5',
-      padding:'8.5%'
+      padding:'6%'
     },
     container:{
         paddingTop: '16px',
@@ -113,12 +116,108 @@ const useStyles2 = makeStyles( (theme)=>({
     },
     img8:{
         margin: '13px 0px 0px 13px'
+    },
+    textDate:{
+        fontFamily:'Roboto',
+        fontWeight:'bold',
+        fontSize:'14px',
+        color: '#54DE7E',
+        margin: '0px 20px 0px 0px',
+    },
+    progress: {
+        backgroundColor: '#d8d8d8',
+        borderRadius: '20px',
+        position: 'relative',
+        /* margin: 15px 0; */
+        height: '7px',
+        width: 'auto',
+        margin: '0px 20px 0px 16px'
+    },
+    progress_done : {
+        backgroundColor: '#54DE7E',
+        height: '100%',
+        width: '95%',
     }
+
   }))
+const image = "http://dev.digiin.vn/"
+const verify_default = {
+    gdmh: "Không",
+    kqai: null,
+    tlcx: null,
+    tgyc: null,
+    tgkq: null
+}
 export default function GridBasic(){
+    
     const classes2 = useStyles2()
+    let data = props.data
+    const [dataPolicy, setDataPolicy] = useState({}) 
+
+    //verify_ai
+    let verify_ai = verify_default
+    if(data.verify_ai[0]){
+        verify_ai = {
+            gdmh: "Có",
+            kqai: "Không vỡ",
+            tlcx: data.verify_ai[0].wfl_ai_scoring,
+            tgyc: data.verify_ai[0].created_at,
+            tgkq: data.verify_ai[0].updated_at,
+        }
+    }
+    if( !data.verify_ai[0] && data.verify_ai_no[0]){
+        verify_ai = {
+            gdmh: "Có",
+            kqai: "Vỡ",
+            tlcx: data.verify_ai_no[0].wfl_ai_scoring,
+            tgyc: data.verify_ai_no[0].created_at,
+            tgkq: data.verify_ai_no[0].updated_at,
+        }
+    }
+
+    //img ocr
+    let ocr1 = image + data.doc_file_ocr[1].wfl_path
+    let ocr2 = image + data.doc_file_ocr[2].wfl_path
+    let ocr3 = image + data.doc_file_ocr[3].wfl_path
+    let ocr4 = image + data.doc_file_ocr[4].wfl_path
+
+    //img ai
+    let ai1 = image + data.doc_file_ai[1].wfl_path
+    let ai2 = image + data.doc_file_ai[2].wfl_path
+    let ai3 = image + data.doc_file_ai[3].wfl_path
+    let ai4 = image + data.doc_file_ai[4].wfl_path
+
+    useEffect(() => {
+		const created_at = moment(data.created_at, 'YYYY-MM-DD HH:mm');
+		const updated_at = moment(data.updated_at, 'YYYY-MM-DD HH:mm');
+		const pol_fm_date = moment(data.pol_fm_date, 'YYYY-MM-DD HH:mm');
+		const pol_end_date = moment(data.pol_end_date, 'YYYY-MM-DD HH:mm');
+		const pol_approval_date = moment(data.pol_approval_date, 'YYYY-MM-DD HH:mm');
+		let product=data.products[0] ? data.products[0] : {};
+		let risk=data.risks[0] ? data.risks[0] : {};
+        // let verify_ai = data.verify_ai[0] ? data.verify_ai[0] : {};
+        
+		setDataPolicy({
+			...product,
+			...risk,
+			...data,
+			pol_status: data.status ? data.status?.pc_name : "",
+			pol_pds: data.branch ? data.branch.br_vn_name : "",
+			pol_pds_name:data.sub_class_setup ? data.sub_class_setup.sc_name : "",
+			pol_approval_date:pol_approval_date.isValid() ? pol_approval_date.format("DD-MM-YYYY") : "",
+			pol_end_date:pol_end_date.isValid() ? pol_end_date.format("DD-MM-YYYY") : "",
+			pol_fm_date:pol_fm_date.isValid() ? pol_fm_date.format("DD-MM-YYYY") : "",
+			// pol_cost_phone:data.pol_cost_phone? data.pol_cost_phone.replace(/\d{4}$/, 'XXXX'):"",
+			pol_cost_phone:data.pol_cost_phone? data.pol_cost_phone:"",
+			created_at:created_at.isValid() ? created_at.format("DD/MM/YYYY HH:mm") : "",
+			updated_at:updated_at.isValid() ? updated_at.format("DD/MM/YYYY HH:mm") : "",
+		})
+		console.log('ok')
+	}, [data])
+
     return(
         <div className={classes2.root}>
+            {/* {gdmh} */}
             <Grid container spacing={0} className={classes2.container}>
                 {/* Bên trái 3 bảng */}
                 <Grid container item sx={12} md={5} className={classes2.left}>
@@ -132,7 +231,7 @@ export default function GridBasic(){
                             </Grid>
                             <Grid item sx={12} md={2.5}>
                                 <Typography className={classes2.textHeader}>
-                                    345765767
+                                    345765767 
                                 </Typography>
                             </Grid>
                             <Grid item sx={12} md={2}>
@@ -423,32 +522,35 @@ export default function GridBasic(){
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid item sx={12} md={12} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReq}>
-                                    Số ngày hiệu lực còn lại
-                                </Typography>
-                                </Grid>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textRes}>
-                                   ----------------- 30 ngày
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        {/* ----Thông tin hủy ----- */}
+                        {/* Số ngày hiệu lực còn lại */}
                         <Grid container item sx={12} md={12} className={classes2.framecontent}>
-                            <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textRes}>
-                                   Thông tin hủy
-                                </Typography>
+                            <Grid container item sx={12} md={12} 
+                                    direction="row" justifyContent="space-between">
+                                <Grid>
+                                    <Typography className={classes2.textReq}>
+                                        Số ngày hiệu lực còn lại
+                                    </Typography>
+                                </Grid>
+                                <Grid>
+                                    <Typography className={classes2.textDate}>
+                                        30 ngày
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid item sx={12} md={12}> 
+                                <div className={classes2.progress}>
+                                    <div className={classes2.progress_done}>
+                                    </div>
+                                </div>
                             </Grid>
                         </Grid>
+                        
                         <Grid container item sx={12} md={6} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReq}>
                                     Ngày cập nhật
                                 </Typography>
-                                </Grid>
+                            </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
                                     11/10/2021 15:23
@@ -464,6 +566,14 @@ export default function GridBasic(){
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
                                     MOMO
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        {/* ----Thông tin hủy ----- */}
+                        <Grid container item sx={12} md={12} className={classes2.framecontent}>
+                            <Grid item sx={12} md={12}>
+                                <Typography className={classes2.textRes}>
+                                   Thông tin hủy
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -533,13 +643,13 @@ export default function GridBasic(){
                         </Grid>
                         <Grid container item sx={12} md={4} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textReqNon}>
+                                <Typography className={classes2.textReqNon} >
                                     Giám định vỡ màn hình
                                 </Typography>
                                 </Grid>
                             <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    Không
+                                <Typography className={classes2.textResNon} >
+                                    {verify_ai.gdmh}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -575,8 +685,8 @@ export default function GridBasic(){
                                 </Typography>
                                 </Grid>
                             <Grid item sx={12} md={12}>
-                                <Typography className={classes2.textResNon}>
-                                    Không vỡ
+                                <Typography className={classes2.textResNon} >
+                                    {verify_ai.kqai}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -617,7 +727,18 @@ export default function GridBasic(){
                                 </Typography>
                             </Grid>
                         </Grid>
-                        
+                        <Grid container item sx={12} md={12} className={classes2.framecontent}>
+                            <Grid item sx={12} md={12}>
+                                <Typography className={classes2.textReq}>
+                                    OCR - IMEI2
+                                </Typography>
+                                </Grid>
+                            <Grid item sx={12} md={12}>
+                                <Typography className={classes2.textRes}>
+                                    123123123123
+                                </Typography>
+                            </Grid>
+                        </Grid>
                         <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
                             {/* Khoảng cách giữa trên ảnh */}
                         </Grid>
@@ -630,20 +751,20 @@ export default function GridBasic(){
                             </Grid>
                             <Grid container item sx={12} md={12}>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ocr1} 
                                     className={`${classes2.imgOCR} ${classes2.img1}`}/>
                                 </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ocr2} 
                                     className={`${classes2.imgOCR} ${classes2.img2}`}/>
                                 </Grid>
                                 <Grid item sx={12} md={4}>  </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ocr3} 
                                     className={`${classes2.imgOCR} ${classes2.img3}`}/>
                                 </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ocr4} 
                                     className={`${classes2.imgOCR} ${classes2.img4}`}/>
                                 </Grid>
                             </Grid>
@@ -656,20 +777,20 @@ export default function GridBasic(){
                             </Grid>
                             <Grid container item sx={12} md={12}>
                                 <Grid item sx={12} >
-                                    <img src={""} 
+                                    <img src={ai1} 
                                     className={`${classes2.imgAI} ${classes2.img5}`}/>
                                 </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ai2} 
                                     className={`${classes2.imgAI} ${classes2.img6}`}/>
                                 </Grid>
                                 <Grid item sx={12} md={3}>  </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ai3} 
                                     className={`${classes2.imgAI} ${classes2.img7}`}/>
                                 </Grid>
                                 <Grid item sx={12}  >
-                                    <img src={""} 
+                                    <img src={ai4} 
                                     className={`${classes2.imgAI} ${classes2.img8}`}/>
                                 </Grid>
                             </Grid>
@@ -683,7 +804,7 @@ export default function GridBasic(){
 
                     </Grid>
                 </Grid>
-
+                
             </Grid>
         </div>
     )
