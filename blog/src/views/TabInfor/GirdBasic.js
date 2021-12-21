@@ -9,7 +9,10 @@ import { useState, useEffect } from 'react';
 import {props} from './teamplate'
 import moment from "moment";
 const src_img = "http://localhost/code/baohiem/check/iphone.jpg"
-
+const a1 = "http://localhost/code/baohiem/check/1.jpg"
+const a2 = "http://localhost/code/baohiem/check/2.jpg"
+const a3 = "http://localhost/code/baohiem/check/3.jpg"
+const a4 = "http://localhost/code/baohiem/check/4.jpg"
 const useStyles2 = makeStyles( (theme)=>({
     root: {
       flexGrow: 1,
@@ -93,30 +96,6 @@ const useStyles2 = makeStyles( (theme)=>({
         height: '61px',
         width: '61px',
     },
-    img1:{
-        margin: '10px 0px 0px 8px'
-    },
-    img2:{
-        margin: '10px 0px 0px 13px'
-    },
-    img3:{
-        margin: '13px 0px 0px 8px'
-    },
-    img4:{
-        margin: '13px 0px 0px 13px'
-    },
-    img5:{
-        margin: '10px 0px 0px 0px'
-    },
-    img6:{
-        margin: '10px 0px 0px 13px'
-    },
-    img7:{
-        margin: '13px 0px 0px 0px'
-    },
-    img8:{
-        margin: '13px 0px 0px 13px'
-    },
     textDate:{
         fontFamily:'Roboto',
         fontWeight:'bold',
@@ -137,7 +116,16 @@ const useStyles2 = makeStyles( (theme)=>({
         backgroundColor: '#54DE7E',
         height: '100%',
         width: '95%',
-    }
+    },
+    imgtop:{
+        margin: '0px 0px 16px 0px'
+    },
+    imgleft:{
+        margin: '13px 0px 0px 16px'
+    },
+    imgright:{
+        margin: '13px 0px 0px 0px'
+    },
 
   }))
 const image = "http://dev.digiin.vn/"
@@ -749,25 +737,27 @@ export default function GridBasic(){
                                     Ảnh OCR
                                 </Typography>
                             </Grid>
-                            <Grid container item sx={12} md={12}>
-                                <Grid item sx={12}  >
-                                    <img src={ocr1} 
-                                    className={`${classes2.imgOCR} ${classes2.img1}`}/>
+                            <Grid container item sx={12} md={12}  className={classes2.imgleft} >
+                                <Grid item sx  >
+                                    <img src={a1} 
+                                    className={`${classes2.imgOCR} `}/>
                                 </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ocr2} 
-                                    className={`${classes2.imgOCR} ${classes2.img2}`}/>
-                                </Grid>
-                                <Grid item sx={12} md={4}>  </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ocr3} 
-                                    className={`${classes2.imgOCR} ${classes2.img3}`}/>
-                                </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ocr4} 
-                                    className={`${classes2.imgOCR} ${classes2.img4}`}/>
+                                <Grid item sx  >
+                                    <img src={a2} 
+                                    className={`${classes2.imgOCR} `} style={{marginLeft:'13px'}}/>
                                 </Grid>
                             </Grid>
+                            <Grid container item sx={12} md={12}  className={classes2.imgleft} >
+                                <Grid item sx  >
+                                    <img src={a3} 
+                                    className={`${classes2.imgOCR} `}/>
+                                </Grid>
+                                <Grid item sx  >
+                                    <img src={a4} 
+                                    className={`${classes2.imgOCR} `} style={{marginLeft:'13px'}}/>
+                                </Grid>
+                            </Grid>
+
                         </Grid>
                         <Grid container item sx={12} md={4} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
@@ -775,23 +765,24 @@ export default function GridBasic(){
                                     Ảnh AI
                                 </Typography>
                             </Grid>
-                            <Grid container item sx={12} md={12}>
-                                <Grid item sx={12} >
-                                    <img src={ai1} 
-                                    className={`${classes2.imgAI} ${classes2.img5}`}/>
+                            <Grid container item sx={12} md={12}  className={classes2.imgright}>
+                                <Grid item sx  >
+                                    <img src={a1} 
+                                    className={`${classes2.imgOCR} `}/>
                                 </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ai2} 
-                                    className={`${classes2.imgAI} ${classes2.img6}`}/>
+                                <Grid item sx  >
+                                    <img src={a2} 
+                                    className={`${classes2.imgOCR} `} style={{marginLeft:'13px'}}/>
                                 </Grid>
-                                <Grid item sx={12} md={3}>  </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ai3} 
-                                    className={`${classes2.imgAI} ${classes2.img7}`}/>
+                            </Grid>
+                            <Grid container item sx={12} md={12}  className={classes2.imgright}>
+                                <Grid item sx  >
+                                    <img src={a3} 
+                                    className={`${classes2.imgOCR} `}/>
                                 </Grid>
-                                <Grid item sx={12}  >
-                                    <img src={ai4} 
-                                    className={`${classes2.imgAI} ${classes2.img8}`}/>
+                                <Grid item sx  >
+                                    <img src={a4} 
+                                    className={`${classes2.imgOCR} `} style={{marginLeft:'13px'}}/>
                                 </Grid>
                             </Grid>
                         </Grid>

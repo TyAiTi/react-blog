@@ -12,6 +12,8 @@ import TabInfor from './views/TabInfor/TabInfor'
 import GridBasic from './views/TabInfor/GirdBasic'
 import Bar from './components/barprogress/Bar'
 import MyComponent from './components/image/image'
+import Viewer from './components/viewer/viewer'
+import LayOut from './components/dashboard/LayOut'
 let theme = createTheme({
   palette: {
     primary: {
@@ -44,7 +46,9 @@ ReactDOM.render(
       {/* <ThemeProvider theme={theme}> */}
         {/* <HopDong/> */}
         {/* <Bar/> */}
-        <GridBasic/>
+        {/* <GridBasic/> */}
+        <Viewer/>
+        {/* <LayOut/> */}
         {/* <MyComponent/> */}
       {/* </ThemeProvider> */}
     {/* </Provider> */}
