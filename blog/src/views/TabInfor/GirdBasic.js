@@ -5,9 +5,15 @@ import Typography from '@material-ui/core/Typography';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import CheckCircleOutlineIcon  from '@mui/icons-material/CheckCircleOutline';
 
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import { useState, useEffect } from 'react';
-import {props} from './teamplate'
+import {props} from './template2'
 import moment from "moment";
+
+import Videos from './Videos';
+import ReactPlayer from 'react-player'
+const link1= 'https://dev.digiin.vn/get-file?path=uploads/policy/2021/12/19/253275/0de900e92c15df877746ff09f81ed3c2.webm&filename=0de900e92c15df877746ff09f81ed3c2.webm.webm'
+const link2= 'https://dev.digiin.vn/get-file?path=uploads/policy/2021/12/19/253275/0de900e92c15df877746ff09f81ed3c2.webm&size=large&filename=0de900e92c15df877746ff09f81ed3c2.webm.webm'
 const src_img = "http://localhost/code/baohiem/check/iphone.jpg"
 const a1 = "http://localhost/code/baohiem/check/1.jpg"
 const a2 = "http://localhost/code/baohiem/check/2.jpg"
@@ -126,9 +132,28 @@ const useStyles2 = makeStyles( (theme)=>({
     imgright:{
         margin: '13px 0px 0px 0px'
     },
-
+    imageocr:{
+        margin:'13px 13px 13px 0px',
+        height: '61px',
+        width: '52px',
+    },
+    imgVideo:{
+        margin:'13px 13px 13px 0px',
+    },
+    frameVideo:{
+        marginTop: '8px',
+        marginLeft:'16px'
+    },
+    textVideo:{
+        fontFamily:'Roboto',
+        fontWeight:'bold',
+        fontSize:'14px',
+        color: '#8A939F',
+        // marginLeft:'16px'
+    },
   }))
 const image = "http://dev.digiin.vn/"
+const domain = "http://dev.digiin.vn/"
 const verify_default = {
     gdmh: "Không",
     kqai: null,
@@ -136,6 +161,8 @@ const verify_default = {
     tgyc: null,
     tgkq: null
 }
+
+
 export default function GridBasic(){
     
     const classes2 = useStyles2()
@@ -175,6 +202,19 @@ export default function GridBasic(){
     let ai3 = image + data.doc_file_ai[3].wfl_path
     let ai4 = image + data.doc_file_ai[4].wfl_path
 
+    //View Video
+    const [videos, setVideos] = useState([])
+    const [visibaleVideoIndex, setVisileVideoIndex] = useState(0);
+    const [openDia, setOpenDia] = useState(false);
+
+    const handleOpenDia = (index) => {
+        setVisileVideoIndex(index)
+        setOpenDia(true);
+    };
+    const handleCloseDia = () => {
+        setOpenDia(false);
+    };
+
     useEffect(() => {
 		const created_at = moment(data.created_at, 'YYYY-MM-DD HH:mm');
 		const updated_at = moment(data.updated_at, 'YYYY-MM-DD HH:mm');
@@ -184,7 +224,9 @@ export default function GridBasic(){
 		let product=data.products[0] ? data.products[0] : {};
 		let risk=data.risks[0] ? data.risks[0] : {};
         // let verify_ai = data.verify_ai[0] ? data.verify_ai[0] : {};
-        
+        //Get url video large
+        setVideos ( (data.video).map(e =>({src:domain+ e.wfl_path_large})) )
+
 		setDataPolicy({
 			...product,
 			...risk,
@@ -202,6 +244,30 @@ export default function GridBasic(){
 		})
 		console.log('ok')
 	}, [data])
+
+    const ListVideo = videos.map( (e,index)=>{
+        return(
+            <Grid item sx key={index} >
+                {/* <PlayCircleOutlineIcon 
+                    className={`${classes2.imageocr} `} 
+                    onClick={() =>handleOpenDia(index)}
+                /> */}
+                <div >
+                    <ReactPlayer 
+                        url={videos[index].src}
+                        width='60px'
+                        height='90px'
+                        
+                        className={`${classes2.imgVideo} `} 
+                        onClick={() =>handleOpenDia(index)}
+                    />
+                </div>
+                
+            </Grid>
+            )
+      })
+
+
 
     return(
         <div className={classes2.root}>
@@ -759,6 +825,7 @@ export default function GridBasic(){
                             </Grid>
 
                         </Grid>
+                        
                         <Grid container item sx={12} md={4} className={classes2.framecontent}>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textReqNon}>
@@ -786,6 +853,17 @@ export default function GridBasic(){
                                 </Grid>
                             </Grid>
                         </Grid>
+
+                        <Grid container item sx={12} md={12} className={classes2.frameVideo}>
+                            <Grid item sx={12} md={12}>
+                                <Typography className={classes2.textVideo}>
+                                    Video
+                                </Typography>
+                            </Grid>
+                            {ListVideo}
+
+                        </Grid>
+
                         <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
                             {/* Khoảng cách cho footer */}
                         </Grid>
@@ -797,6 +875,13 @@ export default function GridBasic(){
                 </Grid>
                 
             </Grid>
+            {/* Show DiaLog */}
+            {/* <Dialogs/> */}
+            <Videos 
+                openDia={openDia} 
+                handleCloseDia={handleCloseDia}
+                linkVideo={link2} 
+                index={visibaleVideoIndex}/>
         </div>
     )
 }

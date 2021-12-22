@@ -7,13 +7,16 @@ import allReducer from './redux/reducers'
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import HopDong from './pages/hopdong/hopdong'
-import HopDong from './views/HopDong/HopDong'
-import TabInfor from './views/TabInfor/TabInfor'
+// import HopDong from './views/HopDong/HopDong'
+// import TabInfor from './views/TabInfor/TabInfor'
 import GridBasic from './views/TabInfor/GirdBasic'
-import Bar from './components/barprogress/Bar'
-import MyComponent from './components/image/image'
-import Viewer from './components/viewer/viewer'
+// import Bar from './components/barprogress/Bar'
+// import MyComponent from './components/image/image'
+// import Viewer from './components/viewer/viewer'
 import LayOut from './components/dashboard/LayOut'
+import Videos from './components/video/Videos'
+import ChartPie from './components/chart/ChartPie'
+import DiaLogs from './components/dialogs/dialogs'
 let theme = createTheme({
   palette: {
     primary: {
@@ -47,8 +50,11 @@ ReactDOM.render(
         {/* <HopDong/> */}
         {/* <Bar/> */}
         {/* <GridBasic/> */}
-        <Viewer/>
+        {/* <Viewer/> */}
+        <Videos/>
+        {/* <DiaLogs/> */}
         {/* <LayOut/> */}
+        {/* <ChartPie/> */}
         {/* <MyComponent/> */}
       {/* </ThemeProvider> */}
     {/* </Provider> */}
