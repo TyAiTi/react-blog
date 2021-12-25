@@ -10,12 +10,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import HopDong from './views/HopDong/HopDong'
 // import TabInfor from './views/TabInfor/TabInfor'
 import GridBasic from './views/TabInfor/GirdBasic'
+import GridBasic2 from './views/TabInfor/GridBasic2';
 // import Bar from './components/barprogress/Bar'
 // import MyComponent from './components/image/image'
 // import Viewer from './components/viewer/viewer'
 import LayOut from './components/dashboard/LayOut'
 import Videos from './components/video/Videos'
 import ChartPie from './components/chart/ChartPie'
+import ChartPieDonut from './components/chart/ChartPieDonut';
 import DiaLogs from './components/dialogs/dialogs'
 let theme = createTheme({
   palette: {
@@ -50,11 +52,13 @@ ReactDOM.render(
         {/* <HopDong/> */}
         {/* <Bar/> */}
         {/* <GridBasic/> */}
+        {/* <GridBasic2/> */}
         {/* <Viewer/> */}
-        <Videos/>
+        {/* <Videos/> */}
         {/* <DiaLogs/> */}
         {/* <LayOut/> */}
         {/* <ChartPie/> */}
+        <ChartPieDonut/>
         {/* <MyComponent/> */}
       {/* </ThemeProvider> */}
     {/* </Provider> */}

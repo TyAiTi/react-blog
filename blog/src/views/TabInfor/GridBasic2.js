@@ -162,7 +162,7 @@ const verify_default = {
 }
 
 
-export default function GridBasic(){
+export default function GridBasic2(){
     
     const classes2 = useStyles2()
     let data = props.data
@@ -279,12 +279,12 @@ export default function GridBasic(){
                         <Grid container item sx={12} md={12} className={classes2.frameHeader}>
                             <Grid item sx={12} md={3.5}>
                                 <Typography className={classes2.textHeader}>
-                                    Số Hợp Đồng
+                                    Số Hợp Đồng 
                                 </Typography>
                             </Grid>
                             <Grid item sx={12} md={2.5}>
                                 <Typography className={classes2.textHeader}>
-                                    345765767 
+                                {dataPolicy.pol_no}
                                 </Typography>
                             </Grid>
                             <Grid item sx={12} md={2}>
@@ -307,7 +307,7 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    Tuấn Danh
+                                {dataPolicy.pol_cust_name}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -319,7 +319,7 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textResNon}>
-                                    trantuandanh95@gmail.com 
+                                    {dataPolicy.pol_cost_email}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -331,7 +331,7 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    0989698237
+                                    {dataPolicy.pol_cost_phone}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -355,7 +355,8 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    VIVO
+                                    {/* VIVO */}
+                                    {dataPolicy.goods_make_name}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -367,7 +368,8 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    VIVO 123
+                                    {/* VIVO 123 */}
+                                    {dataPolicy.goods_model_name}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -379,7 +381,8 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    Smartphone
+                                    {/* Smartphone */}
+                                    {dataPolicy.goods_cat_name}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -391,7 +394,8 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    869150051012755
+                                    {/* 869150051012755 */}
+                                    {dataPolicy.goods_serial}
                                 </Typography>
                             </Grid>
                         </Grid>
@@ -403,21 +407,12 @@ export default function GridBasic(){
                                 </Grid>
                             <Grid item sx={12} md={12}>
                                 <Typography className={classes2.textRes}>
-                                    869150051012733
+                                    {/* 869150051012733 */}
+                                    {dataPolicy.goods_serial2}
                                 </Typography>
                             </Grid>
                         </Grid>
-                        
-                        <Grid item sx={12} md={12} style={{marginBottom:'20px'}}>
-                            {/* Khoảng cách cho footer */}
-                        </Grid>
-                    </Grid>
 
-                    {/* Bảng dưới */}
-                    <Grid container item sx={12} md={12} >
-                        <Grid item sx={12} md={12} style={{marginBottom:'100px'}}>
-                            {/* Khoảng giữa cho các Table */}
-                        </Grid>
                     </Grid>
 
                 </Grid>
