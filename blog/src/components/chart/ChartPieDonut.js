@@ -6,19 +6,19 @@ import Chart from "react-apexcharts";
 
 export default function ChartPie(){
     const options = {
-        series : [3,3,3,4],
-        labels: ['Chờ duyệt', 'Đang làm', 'Từ chối', 'Đã duyệt'],
+        
+        labels: ['mục 1', 'Đang làm', 'Từ chối', 'Đã duyệt'],
         colors: ['#3f51b5','#aa00ff','#1de9b6','#cddc39'],
         plotOptions:{
             pie:{
                 expandOnClick: false,
                 donut:{
-                    size: '60px',
+                    size: '70px',
                     labels:{
                         show: true,
                         
                         total:{
-                            show: true,
+                            show: false,
                             showAlways: true,
                             fontSize: '14px',
                             color: 'red'
@@ -32,13 +32,14 @@ export default function ChartPie(){
           },
         legend: {
             position: 'bottom',
+            horizontalAlign: 'center', 
         }
     }
     const series = [3,3,3,4]
     return(
         <div>
-            Biểu đồ tròn
-            <Grid item xs={12} md={12}>
+            Báo giá sữa chữa
+            <Grid item xs={12} md={12} style={{backgroundColor:'pink', height:'400px'}}>
                 <Chart
                     options={options}
                     series={series}
@@ -46,6 +47,7 @@ export default function ChartPie(){
                     width="50%"
                     height={300}
                 />
+                <div style={{backgroundColor:'yellow', height: '10px', width:'10px', borderRadius:'5px'}}></div>
             </Grid>
         </div>
     )

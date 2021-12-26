@@ -17,3 +17,8 @@ https://www.npmjs.com/package/react-media-player
 
 Dialogs
 https://v4.mui.com/components/dialogs/
+
+plyr-react
+https://openbase.com/js/plyr-react
+https://openbase.com/categories/js/best-react-video-player-libraries
+https://codesandbox.io/s/plyr-react-new-api-forked-cg08k?file=/src/App.tsx

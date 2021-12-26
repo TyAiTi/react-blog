@@ -7,7 +7,12 @@ import Chart from "react-apexcharts";
 export default function ChartPie(){
     const options = {
         
-        labels: ['Chờ duyệt', 'Đang làm', 'Từ chối', 'Đã duyệt'],
+        labels: ['Hãng xử lý sữa chữa',
+                 'Hãng sữa chữa bảo hành', 
+                 'BH ử lý cho đổi máy mới', 
+                 'ASC từ chối yêu cầu',
+                 'Hãng không sữa và trả máy',
+                 'Hãng xử lý sữa chữa'],
         plotOptions:{
             pie:{
                 expandOnClick: false,
@@ -16,7 +21,7 @@ export default function ChartPie(){
                     labels:{
                         show: true,
                         total:{
-                            show: true,
+                            show: false,
                             showAlways: true,
                             fontSide: '24px',
                             color: 'red'
@@ -24,13 +29,15 @@ export default function ChartPie(){
                     }
                 }
             }
-        }
-        
+        },
+        dataLabels: {
+            enabled: false
+          },
     }
-    const series = [3,3,3,5]
+    const series = [3,3,3,5,3]
     return(
         <div>
-            Biểu đồ tròn
+            Hướng xử lý YCBT
             <Grid item xs={12} md={12}>
                 <Chart
                     options={options}
