@@ -2,13 +2,22 @@ import {Grid, Typography} from '@material-ui/core'
 import React from 'react'
 import Chart from "react-apexcharts";
 
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles( ()=>({
+    content:{
+        fontFamily:'Roboto',
+        fontSize:'18px',
+        fontWeight:'bold',
+        marginLeft: '16px'
+    },
+}))
 
-export default function ChartPie(){
+export default function ChartPieDonut(){
+    const classes = useStyles()
     const options = {
-        
-        labels: ['mục 1', 'Đang làm', 'Từ chối', 'Đã duyệt'],
-        colors: ['#3f51b5','#aa00ff','#1de9b6','#cddc39'],
+        labels: ['Chờ Duyệt', 'Đang Làm', 'Từ Chối', 'Đã Duyệt'],
+        colors: ['#FACA9B','#54DE7E','#F44336','#0E70C7'],
         plotOptions:{
             pie:{
                 expandOnClick: false,
@@ -31,24 +40,53 @@ export default function ChartPie(){
             enabled: false
           },
         legend: {
+            show: false,
             position: 'bottom',
             horizontalAlign: 'center', 
         }
     }
     const series = [3,3,3,4]
+
+    const caption = (options.colors).map( (e, index)=>{
+        return(
+            <div style={{display: 'flex', justifyContent:'space-between', marginLeft:'16px'}}>
+                <div style={{display: 'flex', alignItems:'center'}}>
+                    <div style={{backgroundColor:e, height: '10px', width:'10px', borderRadius:'5px'}}>
+                    </div>
+                    <div style={{marginLeft:'16px'}}>
+                        {options.labels[index]}
+                    </div>
+                </div>               
+                <div style={{marginRight:'16px'}}>
+                    25%
+                </div>
+            </div>
+        )
+    })
+
     return(
-        <div>
-            Báo giá sữa chữa
-            <Grid item xs={12} md={12} style={{backgroundColor:'pink', height:'400px'}}>
-                <Chart
-                    options={options}
-                    series={series}
-                    type="donut"
-                    width="50%"
-                    height={300}
-                />
-                <div style={{backgroundColor:'yellow', height: '10px', width:'10px', borderRadius:'5px'}}></div>
+        < >
+            <Typography className={classes.content}> Báo giá sữa chữa</Typography>
+            
+            <Grid container 
+                direction="column" 
+                justifyContent="center"
+                alignItems="center"
+                item xs={12} md={12} 
+                >
+                <Grid>
+                    <Chart
+                        options={options}
+                        series={series}
+                        type="donut"
+                        width="auto"
+                        height={250}
+                        style={{backgroundColor:'blue',}}
+                    />
+                </Grid>
             </Grid>
-        </div>
+            {caption}
+            
+        </>
     )
 }

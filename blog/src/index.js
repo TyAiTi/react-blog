@@ -18,6 +18,8 @@ import LayOut from './components/dashboard/LayOut'
 import Videos from './components/video/Videos'
 import ChartPie from './components/chart/ChartPie'
 import ChartPieDonut from './components/chart/ChartPieDonut';
+import ChartSquares from './components/chart/ChartSquares';
+import ChartArea from './components/chart/ChartArea';
 import DiaLogs from './components/dialogs/dialogs'
 let theme = createTheme({
   palette: {
@@ -56,9 +58,13 @@ ReactDOM.render(
         {/* <Viewer/> */}
         {/* <Videos/> */}
         {/* <DiaLogs/> */}
-        {/* <LayOut/> */}
-        {/* <ChartPie/> */}
-        <ChartPieDonut/>
+        <LayOut/>
+        <ChartPie/>
+        {/* <ChartPieDonut/> */}
+        {/* <ChartSquares/> */}
+        {/* <ChartArea/> */}
+
+        {/* <GridBasic2/> */}
         {/* <MyComponent/> */}
       {/* </ThemeProvider> */}
     {/* </Provider> */}

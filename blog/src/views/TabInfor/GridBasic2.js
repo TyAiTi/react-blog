@@ -11,6 +11,9 @@ import moment from "moment";
 
 import Videos from './Videos';
 import ReactPlayer from 'react-player'
+
+//Button
+import Button from '@material-ui/core/Button';
 const link1= 'https://dev.digiin.vn/get-file?path=uploads/policy/2021/12/19/253275/0de900e92c15df877746ff09f81ed3c2.webm&filename=0de900e92c15df877746ff09f81ed3c2.webm.webm'
 const link2= 'https://dev.digiin.vn/get-file?path=uploads/policy/2021/12/19/253275/0de900e92c15df877746ff09f81ed3c2.webm&size=large&filename=0de900e92c15df877746ff09f81ed3c2.webm.webm'
 const src_img = "http://localhost/code/baohiem/check/iphone.jpg"
@@ -864,7 +867,30 @@ export default function GridBasic2(){
                     </Grid>
                     {/* Bảng phải để trống */}
                     <Grid container item sx={12} md={5} >
-
+                        <Grid container item sx={12} md={6} className={classes2.frameHeader} >
+                            <Grid item sx={12} md={12} style={{backgroundColor:'yellow'}}>
+                                <Grid item sx={12} md={12}></Grid>
+                                
+                                <Grid item sx={12} md={12}>
+                                    <Button variant="outlined" size="large" color="secondary" >
+                                        Xác thực thành công
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            
+                        </Grid>
+                        <Grid container item sx={12} md={6} className={classes2.frameHeader}>
+                            <Grid item sx={12} md={12} style={{backgroundColor:'pink'}} >
+                                <Grid item sx={12} md={12}></Grid>
+                                
+                                <Grid item sx={12} md={12}>
+                                    <Button variant="outlined" size="large" color="secondary" >
+                                        Xác thực thất bại
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        
                     </Grid>
                 </Grid>
                 

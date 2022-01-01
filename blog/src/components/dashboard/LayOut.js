@@ -1,14 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-
-
+import ChartArea from '../chart/ChartArea';
+import ChartPie from '../chart/ChartPie';
+import ChartPieDonut from '../chart/ChartPieDonut'
 const useStyles = makeStyles( ()=>({
     root: {
         padding: '4%',
         // backgroundColor: 'pink'
     },
     top:{
-        // backgroundColor: 'yellow'
+        // backgroundColor: 'pink'
     },
     down:{
         // backgroundColor: 'green',
@@ -21,13 +22,13 @@ const useStyles = makeStyles( ()=>({
         backgroundColor:'gray'
     },
     case1:{
-        backgroundColor:'yellow',
+        // backgroundColor:'yellow',
         borderRadius: '5px',
         boxShadow: '0 0 5px 0 #616161',
-        height: '300px'
+        height: 'auto'
     },
     case2:{
-        backgroundColor:'pink',
+        // backgroundColor:'pink',
         borderRadius: '5px',
         boxShadow: '0 0 5px 0 #616161',
     },
@@ -51,14 +52,18 @@ export default function Layout(){
             {/* Phần trên */}
             <Grid container item sx={12} className={classess.top} >
                 {/* Trái */}
-                <Grid item sx={12} md={9} style={{paddingRight:'20px'}}>
-                    <Grid item sx className={classess.case1} >
-                        TrONG Trái
+                <Grid item sx={12} md={9}  style={{ backgroundColor:'pink'}}>
+                    <Grid  className={classess.case1} >
+                        {/* Trái */}
+                        <ChartArea/>
                     </Grid>
                 </Grid>
                 {/* Phải */}
                 <Grid item sx={12} md={3} className={classess.case2}>
-                    Trái
+                    {/* Phải */}
+                    {/* <ChartArea/> */}
+                    <ChartPieDonut/>
+                    {/* <ChartPie/> */}
                 </Grid>
             </Grid>
 

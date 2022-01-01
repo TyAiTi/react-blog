@@ -2,9 +2,17 @@ import {Grid, Typography} from '@material-ui/core'
 import React from 'react'
 import Chart from "react-apexcharts";
 
-
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles( ()=>({
+    content:{
+        fontFamily:'Roboto',
+        fontSize:'18px',
+        fontWeight:'bold',
+    },
+}))
 
 export default function ChartPie(){
+    const classes = useStyles()
     const options = {
         
         labels: ['Hãng xử lý sữa chữa',
@@ -33,20 +41,28 @@ export default function ChartPie(){
         dataLabels: {
             enabled: false
           },
+        legend: {
+        show: true,
+        position: 'bottom',
+        horizontalAlign: 'center', 
+        }
     }
-    const series = [3,3,3,5,3]
+    const series = [3,3,3,5,3,4]
     return(
-        <div>
-            Hướng xử lý YCBT
+        <>
+            <Typography className={classes.content}>
+                Hướng xử lý YCBT
+            </Typography>
+            
             <Grid item xs={12} md={12}>
                 <Chart
                     options={options}
                     series={series}
                     type="pie"
-                    width="50%"
+                    width="100%"
                     height={300}
                 />
             </Grid>
-        </div>
+        </>
     )
 }
