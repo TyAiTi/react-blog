@@ -22,3 +22,8 @@ plyr-react
 https://openbase.com/js/plyr-react
 https://openbase.com/categories/js/best-react-video-player-libraries
 https://codesandbox.io/s/plyr-react-new-api-forked-cg08k?file=/src/App.tsx
+
+Xem video the mac dinh
+https://stackoverflow.com/questions/51830864/how-to-play-video-in-react-js-using-html-video-tag/51831087
+icon 
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';

@@ -8,6 +8,7 @@ const useStyles = makeStyles( ()=>({
         fontFamily:'Roboto',
         fontSize:'18px',
         fontWeight:'bold',
+        marginLeft:'16px'
     },
 }))
 
@@ -43,7 +44,7 @@ export default function ChartPie(){
           },
         legend: {
         show: true,
-        position: 'bottom',
+        position: 'right',
         horizontalAlign: 'center', 
         }
     }

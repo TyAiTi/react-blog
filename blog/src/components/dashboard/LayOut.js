@@ -3,6 +3,9 @@ import { Grid } from '@material-ui/core';
 import ChartArea from '../chart/ChartArea';
 import ChartPie from '../chart/ChartPie';
 import ChartPieDonut from '../chart/ChartPieDonut'
+import ChartPieDonut2 from '../chart/ChartPieDonut2';
+import ChartSquares from '../chart/ChartSquares';
+
 const useStyles = makeStyles( ()=>({
     root: {
         padding: '4%',
@@ -41,7 +44,7 @@ const useStyles = makeStyles( ()=>({
         backgroundColor:'yellow',
         borderRadius: '5px',
         boxShadow: '0 0 5px 0 #616161',
-        height: '300px'
+        // height: '300px'
     }
 }))
 export default function Layout(){
@@ -52,7 +55,7 @@ export default function Layout(){
             {/* Phần trên */}
             <Grid container item sx={12} className={classess.top} >
                 {/* Trái */}
-                <Grid item sx={12} md={9}  style={{ backgroundColor:'pink'}}>
+                <Grid item sx={12} md={9}  style={{ paddingRight:'16px'}}>
                     <Grid  className={classess.case1} >
                         {/* Trái */}
                         <ChartArea/>
@@ -62,7 +65,8 @@ export default function Layout(){
                 <Grid item sx={12} md={3} className={classess.case2}>
                     {/* Phải */}
                     {/* <ChartArea/> */}
-                    <ChartPieDonut/>
+                    <ChartPieDonut2/>
+                    
                     {/* <ChartPie/> */}
                 </Grid>
             </Grid>
@@ -70,13 +74,13 @@ export default function Layout(){
             {/* Phần dưới */}
             <Grid container item sx={12} className={classess.down} >
                 {/* Trái */}
-                <Grid item sx={12} md={7} className={classess.case3}>
-                    Trái
+                <Grid item sx={12} md={7} style={{backgroundColor:'pink'}} >
+                    <ChartSquares/>
                 </Grid>
                 {/* Phải */}
-                <Grid item sx={12} md={5}  style={{paddingLeft:'20px'}}>
-                    <Grid item sx className={classess.case4} >
-                        TrONG Phải
+                <Grid item sx={12} md={5}  style={{paddingLeft:'16px',  }}>
+                    <Grid item sx className={classess.case4} style={{backgroundColor:'gray'}} >
+                        <ChartPie/>
                     </Grid>
                 </Grid>
             </Grid>

@@ -62,7 +62,7 @@ export default function ChartArea(){
                     series={series}
                     type="area"
                     width="100%"
-                    height={300}
+                    height={400}
                 />
             </Grid>
         </>

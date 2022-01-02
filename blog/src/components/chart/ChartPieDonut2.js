@@ -3,19 +3,19 @@ import React from 'react'
 import Chart from "react-apexcharts";
 
 import { makeStyles } from '@material-ui/core/styles';
-
 const useStyles = makeStyles( ()=>({
     content:{
         fontFamily:'Roboto',
         fontSize:'18px',
         fontWeight:'bold',
-        marginLeft: '16px'
+        marginLeft:'16px'
     },
 }))
 
-export default function ChartPieDonut(){
+export default function ChartPieDonut2(){
     const classes = useStyles()
     const options = {
+        
         labels: ['Chờ Duyệt', 'Đang Làm', 'Từ Chối', 'Đã Duyệt'],
         colors: ['#FACA9B','#54DE7E','#F44336','#0E70C7'],
         plotOptions:{
@@ -24,12 +24,11 @@ export default function ChartPieDonut(){
                 donut:{
                     size: '70px',
                     labels:{
-                        show: true,
-
+                        show: false,
                         total:{
                             show: false,
                             showAlways: true,
-                            fontSize: '14px',
+                            fontSide: '24px',
                             color: 'red'
                         }
                     }
@@ -40,12 +39,12 @@ export default function ChartPieDonut(){
             enabled: false
           },
         legend: {
-            show: false,
-            position: 'bottom',
-            horizontalAlign: 'center',
+        show: false,
+        position: 'bottom',
+        horizontalAlign: 'center', 
         }
     }
-    const series = [3,3,3,4]
+    const series = [3,3,3,5,]
 
     const caption = (options.colors).map( (e, index)=>{
         return(
@@ -63,30 +62,25 @@ export default function ChartPieDonut(){
             </div>
         )
     })
-
     return(
-        < >
-            <Typography className={classes.content}> Báo giá sữa chữa</Typography>
-
-            <Grid container
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-                item xs={12} md={12}
-                >
-                <Grid>
-                    <Chart
-                        options={options}
-                        series={series}
-                        type="donut"
-                        width="auto"
-                        height={250}
-                        style={{backgroundColor:'blue',}}
-                    />
-                </Grid>
+        <>
+            <Typography className={classes.content}>
+                Hướng xử lý YCBT
+            </Typography>
+            
+            <Grid item xs={12} md={12}>
+                <Chart
+                    options={options}
+                    series={series}
+                    type="donut"
+                    width="100%"
+                    height={300}
+                />
             </Grid>
-            {caption}
-
+            <div style={{marginTop:'16px'}}>
+                {caption}
+            </div>
+            
         </>
     )
 }
