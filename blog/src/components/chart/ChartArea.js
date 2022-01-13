@@ -45,13 +45,13 @@ export default function ChartArea(){
 
     const series = [{
         name: 'Hoàn thành',
-        data: [20, 40, 60, 80, 90, 100, 120, 140, 160, 180]
+        data: [20, 40, 60, 80, 90, 100, 120, 140, 160, 160]
       }, {
         name: 'Nhận',
         data: [11, 32, 45, 32, 34, 52, 41, 120, 140, 150]
       }]
     return(
-        <>
+        <div style={{paddingRight:'16px'}}>
             <Typography className={classes.content}>
                 Số lượng nhận và hoàn thành
             </Typography>
@@ -65,6 +65,6 @@ export default function ChartArea(){
                     height={400}
                 />
             </Grid>
-        </>
+        </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
 import Dialog from '@material-ui/core/Dialog';
@@ -39,7 +39,7 @@ const DialogTitle = withStyles(styleDia)((props) => {
 
 export default function DiaLogs() {
   const [openDia, setOpen] = React.useState(false);
-
+  const [username, setUserName] = useState("")
   const handleOpenDia = () => {
     setOpen(true);
   };
@@ -62,6 +62,7 @@ export default function DiaLogs() {
             Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
             in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
           </Typography>
+          <input type= "text" onChange={(e)=> setUserName(e.target.value)} />
       </Dialog>
     </div>
   );

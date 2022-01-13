@@ -50,7 +50,7 @@ export default function ChartPie(){
     }
     const series = [3,3,3,5,3,4]
     return(
-        <>
+        <div style={{height:'405px'}}>
             <Typography className={classes.content}>
                 Hướng xử lý YCBT
             </Typography>
@@ -64,6 +64,6 @@ export default function ChartPie(){
                     height={300}
                 />
             </Grid>
-        </>
+        </div>
     )
 }

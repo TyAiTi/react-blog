@@ -16,6 +16,7 @@ const pol_url_certificate = "https://www.pvionline.com.vn/filedownload/GCNDT_API
 const useStyles = makeStyles( ()=>({
     root:{
         // padding: '1%',
+        // width:'50%',
         width: 'auto'
     },
     topic:{
@@ -68,9 +69,11 @@ const useStyles = makeStyles( ()=>({
         marginLeft:'8px'
     },
     caseArrow:{
-        backgroundColor:'#4E5B6C',
-        borderRadius: '10px',
+        // backgroundColor:'#4E5B6C',
+        borderRadius: '20px',
         boxShadow: '0 0 5px 0 #616161',
+        width:'90%',
+        height:'40px'
     }
 }))
 
@@ -85,31 +88,62 @@ export default function ChartSquares(){
             <Grid
                 container
                 direction="row"
-                justifyContent="center"
-                alignItems="center"
+                
                 className={classes.top}
             >
-                <Grid item xs={12} md ={2}>
+                <Grid
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    item xs={12} md ={2} 
+                    
+                    >
                     <Typography className={classes.topic}>
                         Tình Hình
                     </Typography>
                 </Grid>
-                <Grid xs={12} md ={2}>
+               
+                <Grid 
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    xs={12} md ={2}>
+                    <TuneIcon/>
+                </Grid>
+                <Grid 
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    xs={12} md ={2}>
                     <Typography className={classes.content}>
                         Bộ lọc
                     </Typography>
                 </Grid>
-                <Grid xs={12} md ={2}>
-                    <TuneIcon/>
-                </Grid>
-                <Grid xs={12} md ={3}>
-                    <Typography className={classes.content}>
-                        Tất Cả Trạng Thái
-                    </Typography>
+                <Grid 
+                    container
+                    justifyContent="center"
+                    alignItems="center"
+                    xs={12} md ={3}>
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="center"
+                        alignItems="center"
+                        className={classes.caseArrow}
+                    >
+                        <Typography className={classes.content}>
+                            Tất cả trạn thái
+                        </Typography>
+                        <ArrowDropDownIcon />
+                    </Grid>
                 </Grid>
                 <Grid 
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
                     xs={12} md ={3} 
-                    style={{height:'50px', backgroundColor:'pink',}}
+                    
                     >
                     <Grid
                         container
@@ -152,7 +186,9 @@ export default function ChartSquares(){
                                     direction="row"
                                     justifyContent="center"
                                     alignItems="center"
-                                    item xs={12}>
+                                    item xs={12}
+                                    
+                                    >
                                     <ReportIcon/>
                                     <Typography className={classes.textNoti}> Quá hạn</Typography>
                                 </Grid>
