@@ -81,26 +81,29 @@
 
 import React from "react";
 import ReactDOM from 'react-dom';
-import App from './components/App/App'
-import {createStore} from 'redux'
-import counterReducer from "./components/redux2/reducers/counter";
-import loggedReducer from "./components/redux2/reducers/isLogged";
-import allReducer from "./components/redux2/reducers";
-import { Provider } from "react-redux";
+import App2 from './components/FormReact/App2'
+import FireBase from "./components/firebase/FireBase";
+// import App from './components/App/App'
+// import {createStore} from 'redux'
 
-// const store = createStore(counterReducer,loggedReducer)
-const store = createStore(
-    allReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+// import counterReducer from "./components/redux2/reducers/counter";
+// import loggedReducer from "./components/redux2/reducers/isLogged";
+// import allReducer from "./components/redux2/reducers";
+// import { Provider } from "react-redux";
+
+// const store = createStore(
+//     allReducer,
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//     )
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App/>
-    </Provider>
+    {/* <Provider store={store}> */}
+      <App2/>
+      {/* <FireBase/> */}
+    {/* </Provider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
