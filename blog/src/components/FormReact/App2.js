@@ -16,7 +16,7 @@ const store = createStore(
 function App2() {
     return (
         <Provider store={store} >
-        <div>
+        <div style={{display:'flex', justifyContent:'center'}}>
             {/* <HTMLForm/>
             <ControlledForm/> */}
             <ReduxForm/>
