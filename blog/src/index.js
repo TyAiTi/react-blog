@@ -83,6 +83,7 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import App2 from './components/FormReact/App2'
 import FireBase from "./components/firebase/FireBase";
+import App from './components/firebase/App'
 // import App from './components/App/App'
 // import {createStore} from 'redux'
 

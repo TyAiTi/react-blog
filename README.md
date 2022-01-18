@@ -27,3 +27,7 @@ Xem video the mac dinh
 https://stackoverflow.com/questions/51830864/how-to-play-video-in-react-js-using-html-video-tag/51831087
 icon 
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+
+Tao tai khoan voi firebase
+https://github.com/machadop1407/react-firebase-authentication
+https://www.youtube.com/watch?v=9bXhf_TELP4&t=1540s
