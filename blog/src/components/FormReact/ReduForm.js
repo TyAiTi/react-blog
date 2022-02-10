@@ -1,7 +1,7 @@
 import Input from "./Input";
 import {reduxForm, Field} from 'redux-form'
 import { useSelector } from "react-redux";
-
+import RenderTextField from "./RenderTextField";
 const renderInput = ({input, meta}) =>(
     <Input {...input} type='text'  errorMessage={ meta.touched && meta.error} />   
 )
@@ -47,7 +47,7 @@ function ReduxForm  ({handleSubmit, valid}) {
         <form onSubmit={handleSubmit} >
             <Field 
                 name='customer-id' 
-                component={renderInput}
+                component={RenderTextField}
                 validate = {[required, allowedNames, allowedLengths]}
             />
             

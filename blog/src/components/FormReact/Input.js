@@ -1,10 +1,20 @@
 
-const Input = ({errorMessage, ...props}) =>(
+const Input = ({type,errorMessage, ...props}) =>(
     <div>
-        <input {...props} />
-        { errorMessage &&
-            <span style={{color:'red'}} >{errorMessage} </span>
-        }
+        <div>
+            {props.label &&
+                <span style={{color:'red'}} >{props.label} </span>
+            }
+        </div>
+
+
+        <input {...props} type={type}/>
+        <div>
+            { errorMessage &&
+                <span style={{color:'red'}} >{errorMessage} </span>
+            }
+        </div>
+
     </div>
 )
 

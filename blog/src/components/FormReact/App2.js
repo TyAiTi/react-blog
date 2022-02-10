@@ -6,6 +6,7 @@ import ReduxForm2 from './ReduxForm2'
 import {Provider} from 'react-redux'
 import { createStore, combineReducers } from "redux"
 import {reducer as formReducer} from 'redux-form'
+import FormSign from './FormSign'
 
 const reducers = combineReducers({form: formReducer})
 
@@ -21,6 +22,9 @@ function App2() {
             <ControlledForm/> */}
             <ReduxForm/>
             
+        </div>
+        <div>
+            <FormSign/>
         </div>
         </Provider>
     )

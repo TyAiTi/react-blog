@@ -31,3 +31,15 @@ import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 Tao tai khoan voi firebase
 https://github.com/machadop1407/react-firebase-authentication
 https://www.youtube.com/watch?v=9bXhf_TELP4&t=1540s
+
+
+push realtime theo y muon
+https://www.geeksforgeeks.org/how-to-push-data-into-firebase-realtime-database-using-reactjs/
+ngau nhien
+https://www.youtube.com/watch?v=v0TKYSkZ2tI
+
+vd redux
+https://redux-form.com/6.6.3/examples/fieldlevelvalidation/
+
+redux select form
+https://redux-form.com/8.3.0/examples/selectingformvalues/
